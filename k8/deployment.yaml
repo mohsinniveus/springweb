@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springweb
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: springweb
+  template:
+    metadata:
+      labels:
+        app: springweb
+    spec:
+      containers:
+      - image: asia-south1-docker.pkg.dev/tech-rnd-project/niveus/springweb:1.0.0
+        name: springweb
+        ports:
+        - containerPort: 8080
