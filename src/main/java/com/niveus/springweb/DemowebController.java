@@ -10,7 +10,7 @@ public class DemowebController {
 
     @GetMapping("/")
     public String home() {
-        return "Hello World.";
+        return " ArgoCD - Canary Deployment - Version 1.0.0";
     }
 
 }

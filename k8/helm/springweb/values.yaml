@@ -8,7 +8,7 @@ image:
   repository: asia-south1-docker.pkg.dev/tech-rnd-project/niveus/springweb
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1.0.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -40,24 +40,17 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
-  port: 80
-  targetPort: 8080
-
+  type: LoadBalancer
+  port: 5677
 ingress:
-  enabled: true
+  enabled: false
   className: ""
-  annotations: 
-    #kubernetes.io/ingress.class: nginx
-    #kubernetes.io/tls-acme: "true"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: springweb.local
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-          serviceName: springweb
-          servicePort: 80
+    - host: chart-example.local
+      paths: []
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
