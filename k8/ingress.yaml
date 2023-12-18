@@ -6,13 +6,13 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: hello.127.0.0.1.nip.io
+    - host: localhost
       http:
         paths:
           - path: /
             pathType: ImplementationSpecific
             backend:
               service:
-                name: springweb
+                name: springweb-stable
                 port:
-                  number: 80
+                  number: 5677

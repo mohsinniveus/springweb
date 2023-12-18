@@ -6,8 +6,8 @@ metadata:
     run: springweb
 spec:
   ports:
-  - port: 80
+  - port: 5677
     protocol: TCP
-    targetPort: 8080
+    targetPort: 5677
   selector:
     app: springweb

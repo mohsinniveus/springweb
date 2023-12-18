@@ -17,4 +17,6 @@ spec:
       - image: asia-south1-docker.pkg.dev/tech-rnd-project/niveus/springweb:1.0.0
         name: springweb
         ports:
-        - containerPort: 8080
+        - containerPort: 5677
+      imagePullSecrets:
+           - name: gcr-io

@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: springweb-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/enable-cors: "false"
+    nginx.ingress.kubernetes.io/redirect-to-https: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/client-max-body-size: 20m
+    nginx.ingress.kubernetes.io/proxy-body-size: 20m
+    ingress.kubernetes.io/client-max-body-size: 20m
+    ingress.kubernetes.io/proxy-body-size: 20m
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: springweb-stable
+                port:
+                  number: 5677
